@@ -1,0 +1,18 @@
+pipeline {
+    agent any
+
+    environment {
+        DOCKER_USERNAME = ("$DOCKER_USERNAME")
+        DOCKER_PASSWORD = ("$DOCKER_PASSWORD")
+    }
+    
+    stages {
+        stage('Build and Deploy') {
+            steps {
+                script {
+                    sh './deploy.sh'
+                }
+            }
+        }
+   }
+}
