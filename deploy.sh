@@ -1,17 +1,15 @@
 #!/bin/bash
-if[[$GIT-BRANCH==origin/dev]]
-	build.sh
-        docker login
-        docker credentials
-        docker tag image
-        docker push dev/docker repo
-elif[[$GIT-BRANCH==origin/prod]]
-	build.sh
-        docker login
-        docker credentials
-        docker tag image
-        docker push prod/dockerhub
-else
-	echo "deployment error"
+if [[ $GIT_BRANCH == "origin/dev" ]]; then
+./build.sh
+docker login -u dhividhivya -p dckr_pat_m7npjA2QFNahOVm4hgPGgj9vTw0 
+docker tag myreactimg dhividhivya/dev
+docker push dhividhivya/dev
+elif [[ $GIT_BRANCH == "origin/master" ]]; then
+./build.sh
+docker login -u dhividhivya -p dckr_pat_m7npjA2QFNahOVm4hgPGgj9vTw0
+docker tag myreactimg dhividhivya/prod
+docker push dhividhivya/prod
+else	
+   echo "deployment error"
 fi
 
