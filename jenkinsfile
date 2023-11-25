@@ -1,9 +1,9 @@
-pipeline {
+ pipeline {
     agent any
-
-    environment {
-        DOCKER_USERNAME = ("$DOCKER_USERNAME")
-        DOCKER_PASSWORD = ("$DOCKER_PASSWORD")
+ 
+    environment{
+        "DOCKER_USERNAME = $DOCKER_USERNAME"
+        "DOCKER_PASSWORD = $DOCKER_PASSWORD"
     }
     
     stages {
