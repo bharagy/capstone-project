@@ -1,6 +1,6 @@
 #!/bin/bash
-sudo docker build -t myreactimg .
-sudo docker-compose down || true
-sudo docker-compose up -d
+docker build -t myreactimg .
+docker-compose down || true
+docker-compose up -d
 
 
